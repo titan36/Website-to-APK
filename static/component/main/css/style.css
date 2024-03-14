@@ -1,0 +1,158 @@
+#portal-drivers{
+overflow: auto;
+max-width: 100%;
+
+}
+
+.listgroup p{
+	padding: 0 10px;
+    font-size: 18px;
+    position: relative;
+    z-index: 30;
+}
+
+.listgroup p span{
+	margin-right: 40px;
+	
+}
+
+.center {
+    text-align: center;
+}
+
+.userappicon{
+position : relative ;
+display : inline-block ;
+ }
+.userappicon .appicon {
+position : absolute;
+z-index : 999;
+margin: 0 auto;
+left : 0;
+right : 10;
+top: 81.5%;
+text-align : center;
+width : 90% ;
+ }
+ 
+.userappicon .appicon .appname{
+color:white;
+margin-top:0px;
+font-size: 11px;
+ } 
+
+/*----------------------------------------*/
+/*  14.  Dashboard v.1.0 datatable
+/*----------------------------------------*/
+.custom-datatable-overright table tbody tr td {
+    padding-left: 10px !important;
+    padding-right: 5px !important;
+    font-size: 14px;
+	text-align:left;
+}
+.custom-datatable-overright table tbody tr td.datatable-ct{
+    text-align:center;
+	color: #03a9f4;
+}
+.custom-datatable-overright table tbody tr td a{
+    color:#303030;
+	font-size:14px;
+}
+.custom-datatable-overright .fixed-table-pagination .pagination-detail{
+	padding-left:10px;
+}
+.custom-datatable-overright .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+	background: linear-gradient(to bottom, #ff9966 0%, #d75151 100%);
+    border-color: #ff9966;
+}
+.custom-datatable-overright .fixed-table-toolbar .bs-bars, .fixed-table-toolbar .search, .fixed-table-toolbar .columns{
+	margin-top: 0px;
+}
+.custom-datatable-overright .form-control, .custom-datatable-overright .btn{
+	border-radius: 0px;
+}
+.custom-datatable-overright .fixed-table-toolbar .btn-group > .btn-group:last-child > .btn{
+	border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.custom-datatable-overright .fixed-table-pagination div.pagination, .fixed-table-pagination .pagination-detail{
+	margin-right: 10px;
+}
+.custom-datatable-overright .pagination>li:first-child>a, .pagination>li:first-child>span{
+	border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.custom-datatable-overright .pagination>li:last-child>a, .pagination>li:last-child>span{
+	border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.custom-datatable-overright .fixed-table-container{
+	border-radius: 0px;
+}
+.custom-datatable-overright .btn-primary {
+    background-color: #03a9f4;
+    border-color: #03a9f4;
+}
+.custom-datatable-overright .card-view {
+   padding: 5px 10px;
+}
+.custom-datatable-overright .card-view .value i{
+  color: #03a9f4;
+}
+.custom-datatable-overright .card-view:hover {
+    background:#fff;
+}
+/*----------------------------------------*/
+/*  15.  Dashboard v.2.0
+/*----------------------------------------*/
+.dashtwo-order-list{
+	background:#fff;
+	padding:20px;
+}
+.flot-chart-dashtwo .legendLabel {
+    padding-left: 5px !important;
+}
+.flot-chart-dashtwo table {
+    margin-top: -14px;
+}
+.flot-chart-dashtwo tbody tr {
+    padding:5px 0px;
+}
+.flot-chart-dashtwo tbody tr {
+    padding: 2px 0px;
+    display: block;
+}
+
+/*----------------------------------------*/
+/*  35.  Tree Viewer css
+/*----------------------------------------*/
+
+.tree-viewer-area .sparkline7-graph, .tree-viewer-area .sparkline8-graph, .tree-viewer-area .sparkline9-graph, .tree-viewer-area .sparkline11-graph, .tree-viewer-area .sparkline12-graph, .tree-viewer-area .sparkline13-graph, .tree-viewer-area .sparkline14-graph{
+	text-align:left;
+}
+/*----------------------------------------*/
+/*  36.  Static Table css
+/*----------------------------------------*/
+.sparkline7-graph .static-table-list, .sparkline8-graph .static-table-list, .sparkline9-graph .static-table-list, .sparkline11-graph .static-table-list, .sparkline12-graph .static-table-list, .sparkline13-graph .static-table-list, .sparkline14-graph .static-table-list{
+	text-align:left;
+}
+.static-table-list .table{
+	margin-bottom:0px;
+}
+.static-table-list .table>thead>tr>th{
+	border-bottom:1px solid #ddd;
+}
+.sparkle-table>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+.border-table{
+	border: 1px solid #EBEBEB;
+}
+.border-table > thead > tr > th{
+	background-color: #F5F5F6;
+}
+.hover-table>tbody>tr:hover {
+    background-color: #f5f5f5;
+}
+
+

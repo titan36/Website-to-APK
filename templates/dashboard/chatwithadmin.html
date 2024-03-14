@@ -1,0 +1,152 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+{% load static %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Application List
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+   <section class="content">
+   {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}} alert-dismissible">
+               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+               <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                {{message}}
+                </div>
+          {% endfor %}
+          {% endif %}
+
+        <div class="row">
+            <div class="col-md-9">
+              <!-- DIRECT CHAT -->
+              <div class="box box-warning direct-chat direct-chat-warning">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Direct Chat</h3>
+
+                  <div class="box-tools pull-right">
+                    <span data-toggle="tooltip" title="3 New Messages" class="badge bg-yellow">3</span>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts"
+                            data-widget="chat-pane-toggle">
+                      <i class="fa fa-comments"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <!-- Conversations are loaded here -->
+                  <div class="direct-chat-messages">
+                    <!-- Message. Default to the left -->
+                   {% for chat in chats %}
+                     {% if chat.sender == 'admin' %}
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left">{{chat.sender}}</span>
+                        <span class="direct-chat-timestamp pull-right">{{chat.time}}</span>
+                      </div>
+                      <!-- /.direct-chat-info --
+                      <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                      <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        Is this template really for free? That's unbelievable!
+                      </div>
+                      <!-- /.direct-chat-text -->
+                    </div>
+                    <!-- /.direct-chat-msg -->
+                {% else %}
+                    <!-- Message to the right -->
+                    <div class="direct-chat-msg right">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-right">{{chat.receiver}}</span>
+                        <span class="direct-chat-timestamp pull-left">{{chat.time}}</span>
+                      </div>
+                      <!-- /.direct-chat-info --
+                      <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                      <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                      {{chat.message}}
+                      </div>
+                      <!-- /.direct-chat-text -->
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    <!-- /.direct-chat-msg -->
+                  </div>
+                  <!--/.direct-chat-messages-->
+
+                  <!-- /.direct-chat-pane -->
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                  <form action="{% url 'chat_with_admin' %}{{receiver_id}}" method="post">
+                  {% csrf_token %}
+                    <div class="input-group">
+                      {{chatform.message}}
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-warning btn-flat">Send</button>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.box-footer-->
+              </div>
+              </div>
+              <!--/.direct-chat -->
+              
+            <div class="col-md-3"> 
+            <div class="box box-warning direct-chat direct-chat-warning">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Direct Chat</h3>
+                  <div class="box-tools pull-right">
+                    <span data-toggle="tooltip" title="3 New Messages" class="badge bg-yellow">3</span>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">              
+                    <ul class="contacts-list">
+                    {% for contact in contacts %}
+                      <li>
+                        <a href="
+                        {% url 'chat_with_admin' contact.sender %}">
+                          <img class="contacts-list-img" src="{{user.profilepic.image.url}}" alt="User Image">
+
+                          <div class="contacts-list-info">
+                                <span class="contacts-list-name">
+                               {{ contact.sender }}
+                               </span>
+                            <span class="contacts-list-msg">{{ contact.message | truncatechars:10 }}...</span>
+                          </div>
+                          <!-- /.contacts-list-info -->
+                        </a>
+                      </li>
+                    {% endfor %}
+                      <!-- End Contact Item -->
+                    </ul>
+                    <!-- /.contatcts-list -->
+                  </div>
+                  <!-- /.direct-chat-pane -->
+              </div>
+            </div>
+            <!-- /.col -->
+         </section>
+            <!-- /.content -->
+             {% endblock %}
+          {% block datatable %}
+       {% include "dashboard/include/datatable.html" %} 
+    {% endblock %}    
+            

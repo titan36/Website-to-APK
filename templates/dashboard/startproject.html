@@ -1,0 +1,93 @@
+{% extends 'dashboard/base.html' %}
+    <!-- Content Header (Page header) -->
+   {% block content %}
+   {% load static %}
+    <section class="content-header">
+      <h1>
+        Start your own website2apk project
+        
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">startproject</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+       <div class="progress">
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:20%"> 20% completed
+      </div>
+    </div>
+   
+   {% if form.errors %}
+    <div class="alert alert-error alert-dismissible">
+     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+       <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+    {{form.errors}}
+   </div>
+   {% endif %}
+          
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Fill all the information about your application</h3>
+            </div>
+        
+            <!-- form start -->
+            <form method="post" action="{% url 'startapk' %}" enctype="multipart/form-data">
+             {% csrf_token %}
+              <div class="box-body">
+                <div class="form-group">
+                 <label>{{ form.app_name.label }}</label>
+                  {{ form.app_name }}
+                </div>
+                <div class="form-group">
+                <label>{{ form.package_name.label }}</label>
+                 {{ form.package_name }}
+                </div>
+                <div class="form-group">
+                <label>{{ form.title_activity_home.label }}</label>
+                   {{ form.title_activity_home }}
+                </div>
+                <div class="form-group">
+                <label>{{ form.website_url.label }}</label>
+                   {{ form.website_url }}
+                </div>
+                <div class="form-group">
+                <label>{{ form.email.label }}</label>
+                   {{ form.email }}
+                </div>
+             </div>
+             </div>
+          </div>
+         
+        <div class="col-md-6">
+          <!-- general form elements -->
+          <div class="box box-primary">
+              <div class="box-body">
+                <div class="form-group">
+                <label>{{ form.logo.label }}</label>
+                   {{ form.logo }}
+                   <p><span class="label label-info">crop your icon before upload, and the extension must be png</span></p>
+                </div>
+                <div class="form-group">
+                <label>{{ form.splash_screen.label }}</label>
+                  {{ form.splash_screen }}
+                  <p><span class="label label-info">crop your splash screen before upload, and the extension must be png</span></p>
+                </div>
+                
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Create</button>
+              </div>
+            </form>
+          </div>
+         </div> 
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+ {% endblock %}   

@@ -1,0 +1,113 @@
+{% extends 'dashboard/base.html' %}
+    <!-- Content Header (Page header) -->
+   {% block content %}
+    <section class="content-header">
+      <h1>Your application is ready</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">createapk</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+  <section class="content">
+     <div class="progress">
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%"> 40% completed
+      </div>
+    </div>
+    
+    {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}} alert-dismissible">
+               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+               <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                {{message}}
+                </div>
+          {% endfor %}
+          {% endif %}
+    
+    <div class="row">
+      <div class="col-md-8">
+        <div class="panel panel-primary">
+           <div class="panel-heading">APK-Info</div>
+              <div class="panel-body">
+                 <p><strong>Please Make sure your application informations are correct and click on Next button</strong></p>
+                <span class="label label-info">Please enter your website url correctly, because you can not change once you build your apk</span>
+            </div>
+             <div class="box-body table-responsive no-padding">
+              <table class="table table-bordered">
+                <tr>
+                  <th>ApK Name</th>
+                  <th>Apk Logo</th>
+                  <th>Package Name</th>
+                  <th>Website</th>
+                  <th>Title</th>
+                  <th>Splash screen:</th>
+                  <th>Contact Email:</th>
+                </tr>
+                <tr>
+                  <td><span class="label label-success"><strong><strong>{{app.app_name}}</strong></span></td>
+                  <td><img src="{{app.logo.url}}" width="70" height="70"></p></td>
+                  <td><span class="label label-success"><strong>{{app.package_name}}</strong></span></td>
+                  <td><span class="label label-success">{{app.website_url}}</span></td>
+                  <td><span class="label label-success">{{app.title_activity_home}}</span></td>
+                  <td><img src="{{app.splash_screen.url}}" width="70" height="70"></td>
+                  <td><span class="label label-success"><strong>{{app.email}}</strong></span></td>
+                 
+                </tr>
+               
+              </table>
+            </div>
+            <!-- /.box-body -->
+        	<div style="padding:16px;" class="row">
+              <div class="col-xs-3">
+                <a href="{% url 'create_apk'%}"><button type="button" class="btn btn-primary">Next</button></a>
+              </div>
+              <div class="col-xs-3">
+              <a href="{% url 'edit_apk'%}"><button type="button" class="btn btn-primary">Edit Apk</button></a>
+              </div>
+              <div class="col-xs-3">
+              <a href="{% url 'delete_apk' apkid=app.id %}"><button type="button" class="btn btn-primary">Delete Apk</button></a>
+              </div>
+	     </div>		
+	    </div>
+	  </div>
+	
+	<div class="col-md-4">
+        <div class="panel panel-primary">
+           <div class="panel-heading">Advert Your Business Here</div>
+              <div class="panel-body">
+                <ul>
+                  <li>
+        		    <img src="{{ user.profilepic.image.url }}" width="100" height="100">
+			      </li>
+			   </ul>
+		    </div>
+	    </div>
+	   
+	    <div class="panel panel-primary">
+           <div class="panel-heading">Advert Your Business Here</div>
+              <div class="panel-body">
+                <ul>
+                  <li>
+        		    <img src="{{ user.profilepic.image.url }}" width="100" height="100">
+			      </li>
+			   </ul>
+		    </div>
+	    </div>
+	   
+	    <div class="panel panel-primary">
+           <div class="panel-heading">Advert Your Business Here</div>
+              <div class="panel-body">
+                <ul>
+                  <li>
+        		    <img src="{{ user.profilepic.image.url }}" width="100" height="100">
+			      </li>
+			   </ul>
+		    </div>
+	    </div>  
+      </div> 
+    </div>
+  </section>
+    <!-- /.content -->
+ {% endblock %}   

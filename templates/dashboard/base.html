@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<!-- Head -->
+{% include "dashboard/include/head.html" %}
+<!--End Head -->
+<body class="hold-transition skin-blue fixed sidebar-mini">
+<!-- wrapper -->    
+    <div class="wrapper">
+    <!-- Header -->
+        {% include "dashboard/include/header.html" %}
+    <!--End Header -->
+       
+    <!-- Left sidebar -->   
+        {% include "dashboard/include/leftside.html" %}
+    <!-- End Left sidebar -->   
+    
+  <!-- /.content-wrapper -->        
+    <div class="content-wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+  <!-- /.end content-wrapper -->    
+  
+  <!-- /.Footer -->    
+        {% include "dashboard/include/footer.html" %}
+  <!-- /.end Footer -->          
+  
+  <!-- /.Control side bar the setting --> 
+  {% comment %}  
+        {% include "dashboard/include/controlsidebar.html" %}
+    {% endcomment %}    
+  <!-- /.end Control side bar the setting -->
+  
+   <!-- Javascript Library -->    
+        {% include "dashboard/include/jslibrary.html" %}
+   <!-- End Javascript Library -->     
+   
+   <!-- Javascript datatable Library -->     
+   {% block datatable %}
+   {% endblock %}
+   <!-- End Javascript datatable Library -->
+
+     
+    <div class="control-sidebar-bg"></div>
+    </div>
+<!-- end wrapper -->
+</body>
+</html>    

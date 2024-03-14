@@ -1,0 +1,110 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        About Us
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+   <section class="content">
+   {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}} alert-dismissible">
+               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+               <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                {{message}}
+                </div>
+          {% endfor %}
+          {% endif %}
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <!-- /.box-header -->
+          <div class="box-body">
+             <div class="sparkline13-graph">
+                 <div class="datatable-dashv1-list custom-datatable-overright">
+                    <div id="toolbar">
+                       <select class="form-control">
+                          <option value="">Export Basic</option>
+                          <option value="all">Export All</option>
+                          <option value="selected">Export Selected</option>
+                       </select>
+                   </div>
+               <table class="table table-bordered table-striped" id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+              <thead>
+               <tr>
+                <th data-field="state" data-checkbox="true"></th>
+                  <th>id</th>
+                  <th>Title</th>
+                  <th>Website</th>
+                  <th>Designer</th>
+                  <th>Developer</th>
+                  <th>Address1</th>
+                  <th>Address2</th>
+                  <th>Address3</th>
+                  <th>Address4</th>
+                  <th>Address5</th>
+                  <th>Email1</th>
+                  <th>Email2</th>
+                  <th>Email3</th>
+                  <th>Mobile1</th>
+                  <th>Mobile2</th>
+                  <th>Mobile3</th>
+                  <th>Nio</th>
+                  <th>Vision</th>
+                  <th>Mision</th>
+                  <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+             {% for about in aboutus %} 
+                <tr>
+                  <td></td>
+                  <td>{{about.id}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="title">{{about.title}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="website">{{about.website}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="designer">{{about.designer}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="developer">{{about.developer}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="address1">{{about.address1}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="address2">{{about.address2}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="address3">{{about.address3}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="address4">{{about.address4}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="address5">{{about.address5}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="email1">{{about.email1}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="email2">{{about.email2}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="email3">{{about.email3}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="mobile1">{{about.mobile1}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="mobile2">{{about.mobile2}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="mobile3">{{about.mobile3}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="vision">{{about.bio}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="developer">{{about.vision}}</td>
+                  <td class="editable" data-id="{{ about.id }}" data-type="mision">{{about.mision}}</td>
+                  <td>
+                     <a href="{% url 'update_about' %}" class="btn btn-app">
+                        <i class="fa fa-edit"></i>Update
+                     </a>
+                  </td>
+                  
+                </tr>
+               {% endfor %} 
+                </tbody>
+              </table>
+            </div>
+          </div>
+         </div>
+       </div>
+     </div> 
+   </div>
+ </section>
+    <!-- /.content -->
+  {% endblock %}
+{% block datatable %}
+{% include "dashboard/include/datatable.html" %} 
+{% endblock %}

@@ -1,0 +1,297 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Website2Apk</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+
+		<!-- animate css -->
+		<link rel="stylesheet" href="{% static 'homepage/css/animate.min.css' %}">
+		<!-- bootstrap css -->
+		<link rel="stylesheet" href="{% static 'homepage/css/bootstrap.min.css' %}">
+		<!-- font-awesome -->
+		<link rel="stylesheet" href="{% static 'homepage/css/font-awesome.min.css' %}">
+		<!-- google font -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
+
+		<!-- custom css -->
+		<link rel="stylesheet" href="{% static 'homepage/css/templatemo-style.css' %}">
+
+	</head>
+	<body>
+	 
+		<!-- start preloader
+		<div class="preloader">
+			<div class="sk-spinner sk-spinner-rotating-plane"></div>
+    	 </div>
+		<!-- end preloader -->
+		<!-- start navigation -->
+		<nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+					</button>
+					<a href="{% url 'home' %}"><img src="{{aboutus.logo.url}}" class="navbar-brand" height="90" width="90" alt="Logo"></a>
+					<a href="{% url 'home' %}" class="navbar-brand">Web2APK</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right text-uppercase">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#feature">Features</a></li>
+						<li><a href="#pricing">Pricing</a></li>
+						<li><a href="#contact">Contact</a></li>
+						{% if user.is_authenticated %}
+						<li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+						<li><a href="{% url 'logout' %}">Logout</a></li>
+						{% else %}
+						<li><a href="{% url 'login' %}">Login</a></li>
+						<li><a href="{% url 'register' %}">Register</a></li>
+						{% endif %}
+						
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- end navigation -->
+
+ 
+
+		<!-- start home -->
+		<section style="background: url('{{aboutus.background_img.url}}') no-repeat;" id="home">
+			<div class="overlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10 wow fadeIn" data-wow-delay="0.3s">
+							<h1 class="text-upper">Converte Your Website To Android Application</h1>
+							<p class="tm-white">Anyone can create a professional Android application without any programming experience.
+							The Fastest and Simplest way to create an Android application for your Website.</p>
+							<img src="{{aboutus.screenshoot.url}}" class="img-responsive" alt="home img">
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end home -->
+
+		<!-- start feature -->
+		<section id="feature">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
+						<h2 class="text-uppercase">Features</h2>
+						<p><i class="fa fa-code"></i>No coding required</p>
+					
+						<p>You never write a line of code, complete process is as simple as next,next,next.  </p>
+						<p><i class="fa fa-android"></i>Your Own Brand</p>
+						<p>We never put our branding, all applications you create will be completely your own.</p>
+						<p><i class="fa fa-android"></i>Your Own Icon and Splash Screen</p>
+						<p>We never put our own Icon and Splash screen.</p>
+						<p><i class="fa fa-arrow-right"></i>No Advertisement</p>
+						<p>We do never put advertisement.</p>
+						<p><i class="fa fa-arrow-right"></i>Navigation Drawer</p>
+						<p>Your home, share and send mail link will be set automatically.</p>
+						<p><i class="fa fa-edit"></i>Automatically Updating</p>
+						<p>We will notify you When there is a new update. </p>
+						<p><i class="fa fa-cloud-upload"></i>Google Play Compatible</p>
+						<p>You can publish your apps on google play store.</p>
+						<p><i class="fa fa-money"></i>Very cheap price</p>
+						<p>It is quite cheap, For more please check the pricing.</p>
+					
+					</div>
+					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+						<img src="{{aboutus.screenshoot.url}}" class="img-responsive" alt="feature img">
+						<br>
+					</div>
+					
+				</div>
+			</div>
+		</section>
+		<!-- end feature -->
+
+		<!-- start pricing -->
+		<section id="pricing">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 wow bounceIn">
+						<h2 class="text-uppercase">Our Pricing</h2>
+					</div>
+					<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
+						<div class="pricing text-uppercase">
+							<div class="pricing-title">
+								<h4>Basic Plan</h4>
+								<p>100 Birr</p>
+								<small class="text-lowercase">everytime</small>
+	
+							</div>
+							<ul>
+								<li>1 APK Only</li>
+								<li>1 GB Space for your apps</li>
+								<li>All Features</li>
+								<li>Lifetime Support</li>
+							</ul>
+							<a href="{% url 'register' %}"><button class="btn btn-primary text-uppercase">Sign up</button></a>
+						</div>
+					</div>
+					<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
+						<div class="pricing text-uppercase">
+							<div class="pricing-title">
+								<h4>Business Plan</h4>
+								<p>1000 Birr</p>
+								<small class="text-lowercase">monthly</small>
+							</div>
+							<ul>
+								<li>100 APK</li>
+								<li>5 GB Space for your apps</li>
+								<li>All Features</li>
+								<li>Lifetime Support</li>
+							
+							</ul>
+							<a href="{% url 'register' %}"><button class="btn btn-primary text-uppercase">Sign up</button></a>
+						</div>
+					</div>
+					<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
+						<div class="pricing text-uppercase">
+							<div class="pricing-title">
+								<h4>Pro Plan</h4>
+								<p>10000 Birr</p>
+								<small class="text-lowercase">Yearly</small>
+							</div>
+							<ul>
+								<li>Unlimited APK</li>
+								<li>50 GB Space for your apps</li>
+								<li>All Features</li>
+								<li>Lifetime Support</li>
+							</ul>
+							<a href="{% url 'register' %}"><button class="btn btn-primary text-uppercase">Sign up</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end pricing -->
+
+		<!-- start download 
+		<section id="download">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
+						<h2 class="text-uppercase">Download Our Software</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. </p>
+						<button class="btn btn-primary text-uppercase"><i class="fa fa-download"></i> Download</button>
+					</div>
+					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+						<img src="images/software-img.png" class="img-responsive" alt="feature img">
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end download -->
+
+		<!-- start contact -->
+		<section id="contact">
+			<div class="overlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+							<h2 class="text-uppercase">Contact Us</h2>
+							<p>Get in touch with us. </p>
+							<p>Any Question?. Talk To Us</p>
+							<address>
+								{% if aboutus.address1 %}	
+								<p><i class="fa fa-map-marker"></i>{{aboutus.address3 | capfirst}} {{aboutus.address2 | capfirst}} {{aboutus.address1 | capfirst}}</p>
+								{% endif %}
+								
+								{% if aboutus.address4 %}	
+								<p><i class="fa fa-map-marker"></i>{{aboutus.address4 | capfirst}}, {{aboutus.address5 | capfirst}}</p>
+								{% endif %}
+								
+								{% if aboutus.mobile1 %}	
+								<p><i class="fa fa-phone"></i>{{aboutus.mobile1}}</p>
+								{% endif %}
+								
+								{% if aboutus.mobile2 %}	
+								<p><i class="fa fa-phone"></i>{{aboutus.mobile2}}</p>
+								{% endif %}
+								
+								{% if aboutus.mobile3 %}	
+								<p><i class="fa fa-phone"></i>{{aboutus.mobile3}}</p>
+								{% endif %}
+								
+							{% if aboutus.email1 %}	
+								<p><i class="fa fa-envelope-o"></i> {{aboutus.email1 | capfirst}}</p>
+							{% endif %}
+							
+							{% if aboutus.email2 %}	
+								<p><i class="fa fa-envelope-o"></i> {{aboutus.email2 | capfirst}}</p>
+							{% endif %}
+							
+							{% if aboutus.email3 %}	
+								<p><i class="fa fa-envelope-o"></i> {{aboutus.email3 | capfirst}}</p>
+							{% endif %}	
+							</address>
+						</div>
+						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+							<div class="contact-form">
+							{% if messages %}
+                            {% for message in messages %}
+                          <div class="alert alert-{{message.tags}} alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                           
+                        {{message}}
+                        </div>
+                           {% endfor %}
+                           {% endif %}
+								<form action="" method="post">
+								{% csrf_token %}
+									<div class="col-md-6">
+										{{form.name}}
+									</div>
+									<div class="col-md-6">
+										{{form.email}}
+									</div>
+									<div class="col-md-12">
+										{{form.subject}}
+									</div>
+									<div class="col-md-12">
+									{{form.message}}
+									</div>
+									<div class="col-md-8">
+										<button type="submit" class="btn btn-primary">Send</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end contact -->
+
+		<!-- start footer -->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<p><b>Copyright © 2020-{% now 'Y' %} {{aboutus.website}}. All Rights Reserved</b></p>
+					<p><b>Developed By: {{aboutus.developer}}</b></p>
+				</div>
+			</div>
+		</footer>
+		<!-- end footer -->
+        
+		<script src="{% static 'homepage/js/jquery.js' %}"></script>
+		<script src="{% static 'homepage/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'homepage/js/wow.min.js' %}"></script>
+
+		<script src="{% static 'homepage/js/custom.js' %}"></script>
+	</body>
+</html>
+

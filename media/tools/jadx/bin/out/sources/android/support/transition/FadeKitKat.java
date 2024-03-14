@@ -1,0 +1,27 @@
+package android.support.transition;
+
+import android.animation.Animator;
+import android.transition.Fade;
+import android.view.ViewGroup;
+
+class FadeKitKat extends TransitionKitKat implements VisibilityImpl {
+    public FadeKitKat(TransitionInterface transition) {
+        init(transition, new Fade());
+    }
+
+    public FadeKitKat(TransitionInterface transition, int fadingMode) {
+        init(transition, new Fade(fadingMode));
+    }
+
+    public boolean isVisible(TransitionValues values) {
+        return ((Fade) this.mTransition).isVisible(convertToPlatform(values));
+    }
+
+    public Animator onAppear(ViewGroup sceneRoot, TransitionValues startValues, int startVisibility, TransitionValues endValues, int endVisibility) {
+        return ((Fade) this.mTransition).onAppear(sceneRoot, convertToPlatform(startValues), startVisibility, convertToPlatform(endValues), endVisibility);
+    }
+
+    public Animator onDisappear(ViewGroup sceneRoot, TransitionValues startValues, int startVisibility, TransitionValues endValues, int endVisibility) {
+        return ((Fade) this.mTransition).onDisappear(sceneRoot, convertToPlatform(startValues), startVisibility, convertToPlatform(endValues), endVisibility);
+    }
+}

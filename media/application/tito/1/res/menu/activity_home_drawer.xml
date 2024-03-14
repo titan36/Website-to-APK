@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:icon="@drawable/ic_menu_home" android:id="@id/nav_home" android:title="Home" />
+    </group>
+    <item android:title="Communicate">
+        <menu>
+            <item android:icon="@drawable/ic_menu_email" android:id="@id/nav_mail" android:title="E-mail" />
+            <item android:icon="@drawable/ic_menu_share" android:id="@id/nav_share" android:title="Share" />
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,135 @@
+ <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          {% if user.profilepic %}
+               <img src="{{user.profilepic.image.url}}" class="img-circle" alt="User Image">
+            {% else %}
+               <img src="/media/default/default.png" class="img-circle" alt="User Image">
+            {% endif %}  
+          
+        </div>
+        <div class="pull-left info">
+          <p></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form -->
+
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        
+         <li>
+          <a href="{% url 'dashboard' %}">
+            <i class="fa fa-dashboard text-yellow"></i> <span>Dashboard</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">Dashboard</small>
+            </span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-plus text-yellow"></i>
+            <span>Create APK</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'startapk' %}"><i class="fa fa-circle-o text-yellow"></i>Create New APK</a></li>
+            <li><a href="{% url 'started_apk' %}"><i class="fa fa-circle-o text-yellow"></i>Started APK</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-android text-yellow"></i>
+            <span>Manage APK</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu text-yellow">
+            <li><a href="{% url 'manage_apk' %}"><i class="fa fa-circle-o text-yellow"></i>All APK</a></li>
+            <li><a href="{% url 'completed_apk' %}"><i class="fa fa-circle-o text-yellow"></i>Completed APK</a></li>
+            <li><a href="{% url 'apk_detail' %}"><i class="fa fa-circle-o text-yellow"></i>Incompleted APK</a></li>
+          </ul>
+        </li>
+        
+        {% if user.is_staff %}
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-users text-yellow"></i>
+            <span>Manage Users</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu text-yellow">
+            <li><a href="{% url 'manage_users' %}"><i class="fa fa-circle-o text-yellow"></i>All Users</a></li>
+            
+          </ul>
+        </li>
+        {% endif %}
+        
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-money text-yellow"></i>
+            <span>Payment</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu text-yellow">
+            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i>Pay Now</a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i>Manage Payment</a></li>
+          </ul>
+        </li>
+      
+      {% if user.is_authenticated %}
+       {% if user.is_staff %}  
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-comment text-yellow"></i>
+            <span>Messages</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu text-yellow">
+            <li><a href="{% url 'new_message' %}"><i class="fa fa-circle-o text-yellow"></i>New Messages</a></li>
+            <li><a href="{% url 'all_message' %}"><i class="fa fa-circle-o text-yellow"></i>All Messages</a></li>
+          </ul>
+        </li>
+      
+        <li><a href="{% url 'assets' %}"><i class="fa fa-file-code-o text-yellow"></i> <span>Assets Manager</span></a></li> 
+        
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-info-circle text-yellow"></i>
+            <span>About Us</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu text-yellow">
+            <li><a href="{% url 'about_us' %}"><i class="fa fa-circle-o text-yellow"></i>About</a></li>
+            <li><a href="{% url 'update_banner' %}"><i class="fa fa-circle-o text-yellow"></i>Website Image</a></li>
+          </ul>
+        </li>
+        {% else %}
+        <li><a href="{% url 'contact_us' %}"><i class="fa fa-comment text-yellow"></i> <span>Contact Us</span></a></li>
+        {% endif %}
+       {% endif %} 
+               
+        <li><a href="{% url 'change_password' %}"><i class="fa fa-edit text-yellow"></i> <span>Change Password</span></a></li>
+        <li><a href="{% url 'home' %}"><i class="fa fa-home text-yellow"></i> <span>Visit Home</span></a></li>
+        <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out text-red"></i> <span>Logout</span></a></li>
+        
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>

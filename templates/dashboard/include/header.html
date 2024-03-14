@@ -1,0 +1,86 @@
+<header class="main-header">
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>A</b>PK</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Website2</b>APK</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-envelope-o"></i>
+              <span class="label label-warning">{{new_message.count}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have {{new_message.count}} messages</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                {% for message in new_message %}
+                  <li>
+                    <a href="{% url 'send_message' message_id=message.id %}">
+                      <i class="fa fa-comments text-aqua"></i> {{message.email}}
+                    </a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </li>
+              <li class="footer"><a href="{% url 'new_message' %}">View all</a></li>
+            </ul>
+          </li>
+         
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            {% if user.profilepic %}
+               <img src="{{ user.profilepic.image.url }}" class="user-image" alt="">
+            {% else %}
+               <img src="/media/default/default.png" class="user-image" alt="">
+            {% endif %}  
+              <span class="hidden-xs">{{user}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+              {% if user.profilepic %}
+               <img src="{{ user.profilepic.image.url }}" class="img-circle" alt="">
+            {% else %}
+               <img src="/media/default/default.png" class="img-circle" alt="User Image">
+            {% endif %}
+                <p>
+                  {{user.first_name | capfirst}} {{user.last_name | capfirst}}
+                </p>
+              </li>
+             
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="{% url 'edit_profile_pic' %}" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="{% url 'logout' %}" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button 
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+          -->
+          
+        </ul>
+      </div>
+    </nav>
+  </header>

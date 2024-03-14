@@ -1,0 +1,29 @@
+{% load static %}
+<!-- DataTables -->
+<script src="{% static 'component/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'component/datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
+
+ <!-- data table JS
+		============================================ -->
+    <script src="{% static 'component/datatable/bootstrap-table.js' %}"></script>
+    <script src="{% static 'component/datatable/tableExport.js' %}"></script>
+    <script src="{% static 'component/datatable/data-table-active.js' %}"></script>
+    <script src="{% static 'component/datatable/bootstrap-table-editable.js' %}"></script>
+    <script src="{% static 'component/datatable/bootstrap-editable.js' %}"></script>
+    <script src="{% static 'component/datatable/bootstrap-table-resizable.js' %}"></script>
+    <script src="{% static 'component/datatable/colResizable-1.5.source.js' %}"></script>
+    <script src="{% static 'component/datatable/bootstrap-table-export.js' %}"></script>
+    
+  <script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true
+    })
+  })
+</script>  

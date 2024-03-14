@@ -1,0 +1,83 @@
+{% extends 'dashboard/base.html' %}
+    <!-- Content Header (Page header) -->
+   {% block content %}
+   {% load static %}
+    <section class="content-header">
+      <h1>Your are on the last step</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">complete</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+  <section class="content">
+     <div class="progress">
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:80%"> 80% completed
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="box box-primary"> 
+             <div class="box-header with-border">
+              <h3 class="box-title">APK Icon</h3>
+              <span class="label label-primary pull-right"><i class="glyphicon glyphicon-picture"></i></span>
+            </div>
+           <div class="box-body center">
+           <div class="userappicon">
+	        	<img src="{% static 'homepage/images/menu.png' %}" height="400">
+		        <div class="appicon" >
+			        <img src="{{app.logo.url}}" width="45" height="45">
+			        <h5 class="appname">{{app.app_name}}</h5>
+		        </div>
+    	    </div>
+         </div> 
+      </div>
+      </div> 
+     <div class="col-md-4">
+        <div class="box box-primary"> 
+             <div class="box-header with-border">
+              <h3 class="box-title">APK Info</h3>
+              <span class="label label-primary pull-right"></span>
+            </div>
+       
+           <div class="listgroup">
+                  <p>                                   
+                      <span class="label label-success">App Name</span>
+                      {{app.app_name}}.apk
+                  </p>
+                  <p>
+                      <span class="label label-success">Size</span>
+                      {{ app.logo.size }} Byte
+                  </p>
+                  <p>
+                      <span class="label label-success">Website</span>
+                      {{ app.website_url }}
+                  </p>
+                  
+
+         </div> 
+      </div> 
+     </div> 
+        
+	<div class="col-lg-4">
+        <div class="panel panel-primary">
+           <div class="panel-heading">Advert Your Business Here</div>
+              <div class="panel-body">
+
+		    </div>
+	    </div>
+      </div> 
+    </div>
+
+<div class="row">
+     <div class="col-md-8">
+           <div class="box-body center">
+        <a href="{% url 'complete_apk'%}"><button type="button" class="btn btn-primary">Done</button></a>           
+         </div> 
+      </div> 
+</div>
+      
+  </section>
+    <!-- /.content -->
+ {% endblock %}   

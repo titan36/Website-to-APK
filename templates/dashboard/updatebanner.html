@@ -1,0 +1,66 @@
+{% extends 'dashboard/base.html' %}
+    <!-- Content Header (Page header) -->
+   {% block content %}
+    <section class="content-header">
+      <h1>
+        Update Your Logo
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">updatelogo</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+    
+    {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}} alert-dismissible">
+               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+               <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                {{message}}
+                </div>
+          {% endfor %}
+          {% endif %}
+    
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-9 center">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Update Logo</h3>
+            </div>
+        
+            <!-- form start -->
+            <form method="post" action="{% url 'update_banner' %}" enctype="multipart/form-data">
+             {% csrf_token %}
+      
+              <div class="box-body">
+                <div class="form-group">
+                <label>{{ updatelogo.logo.label }}</label>
+                   {{ updatelogo.logo }}
+                   <img src="{{aboutus.logo.url}}" width="50" height="50">
+                </div>
+                <div class="form-group">
+                <label>{{ updatelogo.background_img.label }}</label>
+                  {{ updatelogo.background_img }}
+                <img src="{{aboutus.background_img.url}}" width="50" height="50">
+                </div>
+               <div class="form-group">
+                <label>{{ updatelogo.screenshoot.label }}</label>
+                  {{ updatelogo.screenshoot }}
+                <img src="{{aboutus.screenshoot.url}}" width="50" height="50">
+               </div>
+              <div class="box-body">
+                <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </form>
+         </div> 
+        </div>  
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+ {% endblock %}   
