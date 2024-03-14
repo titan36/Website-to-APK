@@ -12,10 +12,13 @@ This is a web application developed using the Django framework that allows users
 ## Installation
 
 1. Ensure you are using a Linux system.
-2. Clone this repository: `git clone https://github.com/yourusername/website-to-apk.git`
+2. Clone this repository: `git clone https://github.com/titan36/Website-to-APK`
 3. Navigate to the project directory: `cd website-to-apk`
-4. Install the required dependencies: `pip install -r requirements.txt`
-5. Run the Django server: `python manage.py runserver`
+4. Create virtual environment
+5. Install the required dependencies: `pip install -r requirements.txt`
+6: Migrate the database 'python manage.py makemigrations`
+7: Migrate the database 'python manage.py migrate`
+8. Run the Django server: `python manage.py runserver`
 
 ## Usage
 
